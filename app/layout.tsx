@@ -1,29 +1,31 @@
 // import Logo from '@/app/_components/Logo';
 
-import '@/app/_styles/globals.css';
-import Header from './_components/Header';
+import { cn } from "@/lib/utils";
+import { Inter } from "next/font/google";
+import "./globals.css";
+
+// If loading a variable font, you don't need to specify the font weight
+const inter = Inter({
+  subsets: ["latin"],
+  display: "swap",
+});
 
 export const metadata = {
-	// title: 'The Wild Oasis'
-	title: {
-		template: '%s - The Wild Oasis',
-		default: 'Welcome - The Wild Oasis'
-	},
-	description:
-		'Luxurious cabin hotel, located in the heart of the Italian Dolomites, surrounded by beautiful mountains and dark forests'
+  title: {
+    template: "%s - NIMR",
+    default: "Welcome - NIMR",
+  },
+  description:
+    "Delivering essential medication to NIMR patients with adherence to quality of service, care and confidentiality.",
 };
-
-export default function RootLayout({ children }) {
-	return (
-		<html lang='en'>
-			<body
-				className={`antialiased bg-primary-950 text-primary-100 min-h-screen flex flex-col relative`}
-			>
-				<Header />
-				<div className='flex-1 px-8 py-12 grid'>
-					<main className='max-w-7xl mx-auto w-full'>{children}</main>
-				</div>
-			</body>
-		</html>
-	);
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <html lang="en">
+      <body className={cn(inter.className)}>{children}</body>
+    </html>
+  );
 }
