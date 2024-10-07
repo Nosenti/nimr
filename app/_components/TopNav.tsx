@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Avatar, AvatarFallback, AvatarImage } from "@/app/_components/ui/avatar";
 import { Home, Truck, User, Package, Settings } from "lucide-react";
 import Link from "next/link";
 
@@ -15,8 +15,8 @@ export const TopNav: React.FC<TopNavProps> = () => {
       <div className="bg-white border-b border-gray-200 w-full">
         <div className="flex justify-between items-center px-6 container mx-auto">
           {/* Logo */}
-          <div className="flex items-center">
-            <img src="/logo.png" alt="Logo" className="h-full py-1" />
+          <div className="flex items-center relative">
+            <Image src="/assets/logo.png" alt="Logo" width={40} height={40} className="h-full py-1" />
           </div>
 
           {/* Navigation items */}
@@ -51,7 +51,7 @@ export const TopNav: React.FC<TopNavProps> = () => {
           {/* User account section */}
           <div className="flex items-center space-x-2">
             <Avatar>
-              <AvatarImage src="/avatar.jpg" alt="User Avatar" />
+              <AvatarImage src="/assets/avatar.png" alt="User Avatar" />
               <AvatarFallback>EM</AvatarFallback>
             </Avatar>
             <span className="font-semibold">Emmanuel Adigwe</span>
@@ -68,8 +68,9 @@ interface NavItemProps {
   href: string;
 }
 
-import { cn } from "@/lib/utils";
+import { cn } from "@/app/_lib/utils";
 import { usePathname } from "next/navigation";
+import Image from "next/image";
 const NavItem: React.FC<NavItemProps> = ({ icon, label, href }) => {
   const pathname = usePathname();
   const isActive = pathname.startsWith(href);

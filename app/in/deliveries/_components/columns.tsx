@@ -42,7 +42,7 @@ export const columns: ColumnDef<Patient>[] = [
     header: () => <div className="flex justify-end px-2"></div>,
     cell: ({ row }) => (
       <div className="flex justify-end">
-        <Button asChild variant="outline">
+        <Button asChild variant="outline_primary">
           <Link href={`/in/patients/${row.original.patientId}`}>View</Link>
         </Button>
       </div>

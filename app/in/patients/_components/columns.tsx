@@ -1,8 +1,8 @@
 "use client";
 
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
+import { Badge } from "@/app/_components/ui/badge";
+import { Button } from "@/app/_components/ui/button";
+import { cn } from "@/app/_lib/utils";
 import { ColumnDef } from "@tanstack/react-table";
 import Link from "next/link";
 
@@ -72,7 +72,7 @@ export const columns: ColumnDef<Patient>[] = [
     header: () => <div className="flex justify-end px-2">Actions</div>,
     cell: ({ row }) => (
       <div className="flex justify-end">
-        <Button asChild variant="outline">
+        <Button asChild variant="outline_primary">
           <Link href={`/in/patients/${row.original.patientId}`}>View</Link>
         </Button>
       </div>

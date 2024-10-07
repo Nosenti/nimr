@@ -3,7 +3,7 @@ import {
   BreadcrumbItem,
   BreadcrumbLink,
   BreadcrumbList,
-} from "@/components/ui/breadcrumb";
+} from "@/app/_components/ui/breadcrumb";
 import Link from "next/link";
 import React from "react";
 interface BottomNavProps {

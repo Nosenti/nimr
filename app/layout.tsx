@@ -1,6 +1,6 @@
 // import Logo from '@/app/_components/Logo';
 
-import { cn } from "@/lib/utils";
+import { cn } from "@/app/_lib/utils";
 import { Inter } from "next/font/google";
 import "./globals.css";
 

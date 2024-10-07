@@ -1,7 +1,7 @@
-import img from "@/assets/scan/QR_code_for_mobile_English_Wikipedia.svg.png";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Separator } from "@/components/ui/separator";
+import img from "@/public/assets/scan/QR_code_for_mobile_English_Wikipedia.svg.png";
+import { Button } from "@/app/_components/ui/button";
+import { Input } from "@/app/_components/ui/input";
+import { Separator } from "@/app/_components/ui/separator";
 import Image from "next/image";
 import React from "react";
 
@@ -67,7 +67,6 @@ function NotScanning({
           <div>
             <Button
               onClick={() => setIsScanning(true)}
-              variant={"primary"}
               className="w-full"
               size={"lg"}
             >

@@ -1,4 +1,4 @@
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import { RadioGroup, RadioGroupItem } from "@/app/_components/ui/radio-group";
 import { Label } from "@radix-ui/react-label";
 import React from "react";
 import "tailwindcss/tailwind.css";

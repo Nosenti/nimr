@@ -1,4 +1,4 @@
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import { RadioGroup, RadioGroupItem } from "@/app/_components/ui/radio-group";
 import React, { useState } from "react";
 
 const drivers = [

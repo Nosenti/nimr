@@ -1,6 +1,6 @@
-import BottomNav from "@/components/BottomNav";
-import { BreadcrumbItem, BreadcrumbLink } from "@/components/ui/breadcrumb";
-import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import BottomNav from "@/app/_components/BottomNav";
+import { BreadcrumbItem, BreadcrumbLink } from "@/app/_components/ui/breadcrumb";
+import { Card, CardContent, CardHeader } from "@/app/_components/ui/card";
 import {
   NavigationMenu,
   NavigationMenuItem,
