@@ -12,6 +12,16 @@ import data from "../../_components/data.json";
 import { AssignDispatcher } from "./_components/AssignDispatcher";
 import { DrugCycle } from "./_components/DrugCycle";
 import { ScanPackage } from "./_components/ScanPackage";
+import Spinner from "@/app/_components/ui/Spinner";
+import BottomNav from '@/app/_components/BottomNav';
+import {
+	BreadcrumbItem,
+	BreadcrumbLink,
+	BreadcrumbSeparator
+} from '@/app/_components/ui/breadcrumb';
+import { useRouter } from "next/navigation";
+import toast from "react-hot-toast";
+import { setTimeout } from "timers/promises";
 
 const keys: Partial<Record<keyof Patient, string>> = {
   hospitalId: "Hospital ID",
@@ -117,16 +127,25 @@ const Header = () => {
     </div>
   );
 };
-const Footer = () => {
+// Footer Component
+const Footer = ({ scanStatus, onAssignPackage }: { scanStatus: string; onAssignPackage: () => void }) => {
   const {
     nextStep,
     previousStep,
-    isLoading,
     activeStep,
-    stepCount,
-    isLastStep,
+    isLoading,
     isFirstStep,
   } = useWizard();
+
+  const isAssignDisabled = activeStep === 2 && scanStatus !== "success";
+
+  const handleNextClick = () => {
+    if (activeStep === 2) {
+      onAssignPackage(); // Show confirmation modal
+    } else {
+      nextStep();
+    }
+  };
 
   return (
     <div className="border-t pt-6 px-8 flex justify-between gap-x-10">
@@ -134,16 +153,21 @@ const Footer = () => {
         disabled={isLoading || isFirstStep}
         onClick={() => previousStep()}
         size={"lg"}
-        variant={"outline"}
+        variant={"outline_primary"}
       >
         Back
       </Button>
-      <Button onClick={() => nextStep()} disabled={isLoading} size={"lg"}>
-        {activeStep == 2 ? "Assign Package" : "Next"}
+      <Button
+        onClick={handleNextClick}
+        disabled={isLoading || isAssignDisabled}
+        size={"lg"}
+      >
+        {activeStep === 2 ? "Assign Package" : "Next"}
       </Button>
     </div>
   );
 };
+
 /**
  *
  * @param props
@@ -153,6 +177,11 @@ const PatientPage = (props: any) => {
   const id = props.params.id;
   const [patient, setPatient] = useState<Patient | null>(null);
   const [activeTab, setActiveTab] = useState("patient");
+  const [scanStatus, setScanStatus] = useState("idle");
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const router = useRouter();
+
+  
   useEffect(() => {
     if (id) {
       const foundPatient = data.data.find(
@@ -163,11 +192,51 @@ const PatientPage = (props: any) => {
   }, [id]);
 
   if (!patient) {
-    return <div>Loading...</div>;
+    return <div><Spinner/></div>;
   }
+  const onAssignPackage = () => {
+    setIsModalOpen(true);
+  };
+
+  const handleConfirm = () => {
+    
+    setIsModalOpen(false);
+    toast.success(`Package has been successfully assigned to ${patient!.patientName}`, {
+    duration: 4000,
+    position: "top-center",
+    style: {
+      background: "green",
+      color: "white",
+      fontWeight: "bold",
+    },
+    icon: <LucideCheckCircle2 className="text-white" />,
+  });
+    
+    router.push("/in/deliveries");
+    
+  };
 
   return (
     <>
+      <BottomNav
+				breads={
+					<>
+						<BreadcrumbItem>
+							<BreadcrumbLink className='text-md text-primary'>
+								Patients
+							</BreadcrumbLink>
+						</BreadcrumbItem>
+						<BreadcrumbSeparator />
+						<BreadcrumbItem>
+							<BreadcrumbLink className='text-lg'>View Patient</BreadcrumbLink>
+						</BreadcrumbItem>
+						<BreadcrumbSeparator />
+						<BreadcrumbItem>
+							<BreadcrumbLink className='text-xl'>Assign Package to Patient</BreadcrumbLink>
+						</BreadcrumbItem>
+					</>
+				}
+			></BottomNav>
       <div className="container mx-auto py-4">
         <div className="grid gap-10 grid-cols-12">
           <div className="col-span-4">
@@ -198,7 +267,7 @@ const PatientPage = (props: any) => {
           <div className="col-span-8">
             <Card>
               <CardContent className="px-0">
-                <Wizard header={<Header />} footer={<Footer />}>
+                <Wizard header={<Header />} footer={<Footer scanStatus={scanStatus} onAssignPackage={onAssignPackage} />}>
                   <Step number={1}>
                     <DrugCycle
                       patientName={patient!.patientName}
@@ -209,7 +278,10 @@ const PatientPage = (props: any) => {
                     <AssignDispatcher />
                   </Step>
                   <Step number={3}>
-                    <ScanPackage patientName={patient!.patientName} />
+                    <ScanPackage
+                      patientName={patient!.patientName}
+                      onScanStatusChange={setScanStatus}
+                    />
                   </Step>
                 </Wizard>
                 {/*  */}
@@ -217,6 +289,28 @@ const PatientPage = (props: any) => {
             </Card>
           </div>
         </div>
+        {isModalOpen && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
+            <Card className="max-w-md w-full m-4">
+              <CardHeader className="border-b">
+                <h3 className="text-lg font-medium text-gray-900">
+                  Assign Package <strong>3455666</strong>
+                </h3>
+              </CardHeader>
+              <CardContent className="py-6">
+                <p className="mt-2 text-sm text-gray-600">
+                  Are you sure you want to assign package <strong>3455666</strong> to <strong>{ patient!.patientName}</strong>?
+                </p>
+              </CardContent>
+              <div className="px-6 py-6 flex space-x-3 border-t">
+                <Button onClick={() => setIsModalOpen(false)} variant="outline_primary" size="lg">
+                  No, Go Back
+                </Button>
+                <Button onClick={handleConfirm} size='lg'>Yes, Assign Package</Button>
+              </div>
+            </Card>
+          </div>
+        )}
         {/* Right Main Content */}
       </div>
     </>

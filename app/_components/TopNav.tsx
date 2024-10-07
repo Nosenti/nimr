@@ -43,7 +43,7 @@ export const TopNav: React.FC<TopNavProps> = () => {
             />
             <NavItem
               icon={<Settings size={16} />}
-              href="/in/overview"
+              href="/in/admin"
               label="Admin"
             />
           </div>

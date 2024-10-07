@@ -1,7 +1,5 @@
 
 
 export default function Page() {
-  return (
-    <div>Overview</div>
-  );
+  return <p>Overview page (Not implemented yet)</p> 
 }

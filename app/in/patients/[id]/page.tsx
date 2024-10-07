@@ -20,6 +20,7 @@ import {
 import BigInput from '@/app/_components/ui/patient-input';
 import { cn } from '@/app/_lib/utils';
 import Link from 'next/link';
+import Spinner from '@/app/_components/ui/Spinner';
 
 const PatientPage = (props: any) => {
 	const id = props.params.id;
@@ -35,7 +36,7 @@ const PatientPage = (props: any) => {
 	}, [id]);
 
 	if (!patient) {
-		return <div>Loading...</div>;
+		return <div><Spinner/></div>;
 	}
 
 	return (

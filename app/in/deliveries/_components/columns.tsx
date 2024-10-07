@@ -1,8 +1,6 @@
 "use client";
 
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
+import { Button } from "@/app/_components/ui/button";
 import { ColumnDef } from "@tanstack/react-table";
 import Link from "next/link";
 
