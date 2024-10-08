@@ -4,7 +4,7 @@ import {
 } from "@/app/_components/ui/breadcrumb";
 import React from "react";
 interface BottomNavProps {
-  children: React.ReactNode;
+  children?: React.ReactNode;
   breads?: React.ReactNode;
 }
 

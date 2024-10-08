@@ -9,10 +9,10 @@ import { toast } from 'react-hot-toast';
 interface ScanPackageProps {
   patientName: string;
   onScanningChange: string;
+  onScanStatusChange?: any;
 }
 
 function Scanning({
-  setIsScanning,
   scanStatus,
 }: {
   setIsScanning: (val: boolean) => void;

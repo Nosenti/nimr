@@ -10,7 +10,6 @@ interface DrugCycleProps {
 
 export const DrugCycle: React.FC<DrugCycleProps> = ({
   patientName,
-  onDrugCycleChange,
 }) => {
   return (
     <div>

@@ -29,11 +29,13 @@ import {
   useReactTable,
 } from "@tanstack/react-table";
 import { ChevronDown } from "lucide-react";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
   data: TData[];
+  sortOrder?: 'asc' | 'desc'; // Add this line
+  setSortOrder?: (order: 'asc' | 'desc') => void; // And this line
 }
 
 export function DataTable<TData, TValue>({

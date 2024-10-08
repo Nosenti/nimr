@@ -115,7 +115,7 @@ export const AssignDispatcher: React.FC = () => {
 							<div className='flex items-center px-4 justify-between w-full'>
 								<div>
 									<div className='text-sm text-gray-500'>
-										DIspatch Rider's Name
+										Dispatch Rider&#39;s Name
 									</div>
 									<div className='font-bold text-lg'>{driver.name}</div>
 								</div>

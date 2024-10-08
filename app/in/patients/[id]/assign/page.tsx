@@ -30,7 +30,7 @@ const keys: Partial<Record<keyof Patient, string>> = {
   location: "Location",
 };
 
-const Step = ({ number, children }: { number: number; children: any }) => {
+const Step = ({ children }: { number: number; children: any }) => {
   const { handleStep } = useWizard();
   handleStep(() => {});
   return <div className="px-8 py-8">{children}</div>;
@@ -170,7 +170,6 @@ const Footer = ({ scanStatus, onAssignPackage }: { scanStatus: string; onAssignP
 const PatientPage = (props: any) => {
   const id = props.params.id;
   const [patient, setPatient] = useState<Patient | null>(null);
-  const [activeTab, setActiveTab] = useState("patient");
   const [scanStatus, setScanStatus] = useState("idle");
   const [isModalOpen, setIsModalOpen] = useState(false);
   const router = useRouter();
@@ -213,24 +212,21 @@ const PatientPage = (props: any) => {
   return (
     <>
       <BottomNav
-				breads={
-					<>
-						<BreadcrumbItem>
-							<BreadcrumbLink className='text-md text-primary'>
-								Patients
-							</BreadcrumbLink>
-						</BreadcrumbItem>
-						<BreadcrumbSeparator />
-						<BreadcrumbItem>
-							<BreadcrumbLink className='text-lg'>View Patient</BreadcrumbLink>
-						</BreadcrumbItem>
-						<BreadcrumbSeparator />
-						<BreadcrumbItem>
-							<BreadcrumbLink className='text-xl'>Assign Package to Patient</BreadcrumbLink>
-						</BreadcrumbItem>
-					</>
-				}
-			></BottomNav>
+        breads={<>
+          <BreadcrumbItem>
+            <BreadcrumbLink className='text-md text-primary'>
+              Patients
+            </BreadcrumbLink>
+          </BreadcrumbItem>
+          <BreadcrumbSeparator />
+          <BreadcrumbItem>
+            <BreadcrumbLink className='text-lg'>View Patient</BreadcrumbLink>
+          </BreadcrumbItem>
+          <BreadcrumbSeparator />
+          <BreadcrumbItem>
+            <BreadcrumbLink className='text-xl'>Assign Package to Patient</BreadcrumbLink>
+          </BreadcrumbItem>
+        </>} children={undefined}			></BottomNav>
       <div className="container mx-auto py-4">
         <div className="grid gap-10 grid-cols-12">
           <div className="col-span-4">
@@ -274,8 +270,7 @@ const PatientPage = (props: any) => {
                   <Step number={3}>
                     <ScanPackage
                       patientName={patient!.patientName}
-                      onScanStatusChange={setScanStatus}
-                    />
+                      onScanStatusChange={setScanStatus} onScanningChange={""}                    />
                   </Step>
                 </Wizard>
           
