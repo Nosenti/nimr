@@ -142,7 +142,7 @@ const Footer = ({ scanStatus, onAssignPackage }: { scanStatus: string; onAssignP
   };
 
   return (
-    <div className="border-t pt-6 px-8 flex justify-between gap-x-10">
+    <div className="border-t pt-6 px-8 flex justify-between gap-x-10 mb-6">
       <Button
         disabled={isLoading || isFirstStep}
         onClick={() => previousStep()}
