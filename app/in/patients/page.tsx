@@ -15,7 +15,7 @@ const PatientsPage: React.FC = async () => {
   const data = await getData();
   return (
     <>
-      {/*  */}
+    
       <BottomNav
         breads={
           <BreadcrumbItem>
@@ -34,7 +34,7 @@ const PatientsPage: React.FC = async () => {
           </div>
         </div>
       </BottomNav>
-      {/*  */}
+
       <div className="container mx-auto pt-6">
         <DataTable columns={columns} data={data} />
       </div>

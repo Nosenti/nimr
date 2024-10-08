@@ -85,9 +85,8 @@ export function DataTable<TData, TValue>({
 
   return (
     <div className="w-full">
-      {/* Sorting and Search Controls */}
+     
       <div className="flex justify-between items-center py-4 w-full">
-        {/* Sort by Dropdown */}
         <div className="flex items-center space-x-2">
           <span className="text-gray-700 font-semibold">Sort by</span>
           <DropdownMenu>
@@ -107,7 +106,7 @@ export function DataTable<TData, TValue>({
             </DropdownMenuContent>
           </DropdownMenu>
         </div>
-        {/* Search Input */}
+  
         <Input
           placeholder="Search by patient name"
           value={
@@ -120,7 +119,7 @@ export function DataTable<TData, TValue>({
         />
       </div>
 
-      {/* Data Table */}
+    
       <div className="bg-white rounded shadow-sm border">
         <Table>
           <TableHeader>
@@ -169,7 +168,7 @@ export function DataTable<TData, TValue>({
           </TableBody>
         </Table>
 
-        {/* Pagination Controls */}
+       
         <div className="flex items-center justify-between space-x-2 py-4 px-4">
           <div className="text-sm text-muted-foreground">
             Viewing {table.getRowModel().rows.length} of {data.length} results

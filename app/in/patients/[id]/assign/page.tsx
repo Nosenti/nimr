@@ -21,7 +21,6 @@ import {
 } from '@/app/_components/ui/breadcrumb';
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
-import { setTimeout } from "timers/promises";
 
 const keys: Partial<Record<keyof Patient, string>> = {
   hospitalId: "Hospital ID",
@@ -44,13 +43,8 @@ const CheckBot = () => {
 };
 const Header = () => {
   const {
-    nextStep,
-    previousStep,
-    isLoading,
-    activeStep,
-    stepCount,
-    isLastStep,
-    isFirstStep,
+    activeStep
+
   } = useWizard();
   const finishedStepClass = "text-green-600 font-semibold";
   const activeStepClass = "text-blue-600 font-semibold";
@@ -127,7 +121,7 @@ const Header = () => {
     </div>
   );
 };
-// Footer Component
+
 const Footer = ({ scanStatus, onAssignPackage }: { scanStatus: string; onAssignPackage: () => void }) => {
   const {
     nextStep,
@@ -141,7 +135,7 @@ const Footer = ({ scanStatus, onAssignPackage }: { scanStatus: string; onAssignP
 
   const handleNextClick = () => {
     if (activeStep === 2) {
-      onAssignPackage(); // Show confirmation modal
+      onAssignPackage(); 
     } else {
       nextStep();
     }
@@ -240,7 +234,7 @@ const PatientPage = (props: any) => {
       <div className="container mx-auto py-4">
         <div className="grid gap-10 grid-cols-12">
           <div className="col-span-4">
-            {/* Left Vertical Navigation */}
+            
             <Card>
               <CardHeader className="border-b font-semibold text-lg">
                 Patient Information
@@ -263,7 +257,7 @@ const PatientPage = (props: any) => {
               </CardContent>
             </Card>
           </div>
-          {/*  */}
+    
           <div className="col-span-8">
             <Card>
               <CardContent className="px-0">
@@ -284,7 +278,7 @@ const PatientPage = (props: any) => {
                     />
                   </Step>
                 </Wizard>
-                {/*  */}
+          
               </CardContent>
             </Card>
           </div>
@@ -311,7 +305,7 @@ const PatientPage = (props: any) => {
             </Card>
           </div>
         )}
-        {/* Right Main Content */}
+        
       </div>
     </>
   );

@@ -112,7 +112,7 @@ export function DataTable<TData, TValue>({
         </div>
       </div>
 
-      <div className="bg-white rounded shadow-sm border">
+      <div className="bg-white rounded shadow-sm border mb-4">
         <div>
           <Table>
             <TableHeader>
@@ -137,6 +137,7 @@ export function DataTable<TData, TValue>({
               {table.getRowModel().rows?.length ? (
                 table.getRowModel().rows.map((row) => (
                   <TableRow
+                   
                     key={row.id}
                     data-state={row.getIsSelected() && "selected"}
                   >

@@ -73,7 +73,7 @@ const PatientPage = (props: any) => {
 			<div className='container mx-auto py-4'>
 				<div className='grid gap-10 grid-cols-12'>
 					<div className='col-span-4'>
-						{/* Left Vertical Navigation */}
+						
 						<Card>
 							<CardContent>
 								<div className='py-4'>
@@ -94,22 +94,20 @@ const PatientPage = (props: any) => {
 							</CardContent>
 						</Card>
 					</div>
-					{/*  */}
+				
 					<div className='col-span-8'>
 						<Card>
 							<CardContent className='px-0'>
 								<Tabs value={activeTab} onValueChange={setActiveTab}>
 									<TabsList className='flex items-center space-x-4 w-full border-b px-6'>
-										{/* */}
-										{/* */}
+									
 										<div className='flex items-center gap-x-4 flex-1'>
 											<p className='text'>Payment Status</p>
 											<Badge className='rounded bg-green-100 shadow-none text-green-950'>
 												{patient.status}
 											</Badge>
 										</div>
-										{/* */}
-										{/* */}
+									
 										<TabsTrigger
 											value='patient'
 											className={cn({
@@ -137,7 +135,7 @@ const PatientPage = (props: any) => {
 										value='patient'
 									>
 										<div className='grid grid-cols-12 gap-4'>
-											{/* Left Section */}
+											
 											<div className='col-span-6 flex flex-col justify-start'>
 												<div className='space-y-4'>
 													<h2 className='text-xl font-bold mb-4'>
@@ -152,10 +150,10 @@ const PatientPage = (props: any) => {
 													>
 														Edit Patient's Information
 													</Button>
-													{/* Add any other actions or content on the right side */}
+													
 												</div>
 											</div>
-											{/* Right section */}
+										
 											<div className='col-span-6'>
 												<div className='space-y-4'>
 													<BigInput
@@ -204,7 +202,7 @@ const PatientPage = (props: any) => {
 									</TabsContent>
 									<TabsContent className='px-6 py-4' value='delivery'>
 										<div className='grid grid-cols-12 gap-4'>
-											{/* Left Section */}
+											
 											<div className='col-span-6 flex flex-col justify-start'>
 												<div className='space-y-4'>
 													<h2 className='text-xl font-bold mb-4'>
@@ -219,10 +217,10 @@ const PatientPage = (props: any) => {
 													>
 														Edit Delivery Information
 													</Button>
-													{/* Add any other actions or content on the right side */}
+													
 												</div>
 											</div>
-											{/* Right section */}
+											
 											<div className='col-span-6'>
 												<div className='space-y-4'>
 													<BigInput
@@ -264,7 +262,7 @@ const PatientPage = (props: any) => {
 						</Card>
 					</div>
 				</div>
-				{/* Right Main Content */}
+				
 			</div>
 		</>
 	);

@@ -14,12 +14,11 @@ export const DrugCycle: React.FC<DrugCycleProps> = ({
 }) => {
   return (
     <div>
-      {/*  */}
+   
       <div className="px-1">
         <h2 className="my-2 py-2">{patientName} Drug Cycle</h2>
       </div>
-      {/*  */}
-      {/*  */}
+
       <RadioGroup
         name="drugCycle"
         defaultValue="option-one"
@@ -38,7 +37,7 @@ export const DrugCycle: React.FC<DrugCycleProps> = ({
             </p>
           </div>
         </div>
-        {/*  */}
+       
         <div className="border border-black/10">
           <div className="flex items-center space-x-2 border-b border-black/10 p-4">
             <RadioGroupItem value="option-two" className="flex items-center" />

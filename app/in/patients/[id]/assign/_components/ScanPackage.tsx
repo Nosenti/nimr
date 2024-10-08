@@ -67,7 +67,7 @@ function NotScanning({
   return (
     <div>
       <div className="grid grid-cols-12 gap-10 items-center">
-        {/* Left Column */}
+       
         <div className="col-span-5 p-4">
           <div>
             <Image
@@ -90,14 +90,14 @@ function NotScanning({
             </Button>
           </div>
         </div>
-        {/* Separator */}
+      
         <Separator
           orientation="vertical"
           className="flex items-center justify-center"
         >
           <span className="bg-white p-1">Or</span>
         </Separator>
-        {/* Right Column */}
+      
         <div className="col-span-5 p-4">
           <div className="flex gap-y-3 flex-col">
             <div>Trouble scanning? Enter the package ID manually.</div>
@@ -152,14 +152,12 @@ export const ScanPackage: React.FC<ScanPackageProps> = ({ patientName, onScanSta
 
   return (
     <div>
-      
-      {/* Header */}
       <div className="px-1">
         <h2 className="my-2 py-2 text-center">
           Scan package to assign it to <b>{patientName}</b>.
         </h2>
       </div>
-      {/* Content */}
+
       {isScanning ? (
         <Scanning setIsScanning={setIsScanning} scanStatus={scanStatus} />
       ) : (

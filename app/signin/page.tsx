@@ -5,9 +5,9 @@ import React from 'react';
 export default function Login() {
 	return (
 		<div className='flex h-screen'>
-			{/* Left Part */}
+			
 			<div className='w-1/2 flex flex-col justify-between p-8'>
-				{/* Top Logo */}
+				
 				<div className='flex justify-center relative'>
 					<Image
 						src='/assets/nimr_logo.png'
@@ -17,8 +17,7 @@ export default function Login() {
 						className='h-16'
 					/>
 				</div>
-
-				{/* Middle Form */}
+				
 				<div className='flex justify-center'>
 					<form className='w-full max-w-md'>
 						<div className='mb-4'>
@@ -81,8 +80,7 @@ export default function Login() {
 						</div>
 					</form>
 				</div>
-
-				{/* Bottom Powered By */}
+				
 				<div className='flex justify-center items-center'>
 					<span className='text-gray-600'>Powered by</span>
 					<img
@@ -92,8 +90,7 @@ export default function Login() {
 					/>
 				</div>
 			</div>
-
-			{/* Right Part */}
+			
 			<div
 				className='w-1/2 bg-cover bg-center relative flex justify-center items-center'
 				style={{ backgroundImage: "url('/assets/background_photo.png')" }}
