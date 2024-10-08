@@ -239,7 +239,7 @@ const PatientPage = (props: any) => {
               <CardHeader className="border-b font-semibold text-lg">
                 Patient Information
               </CardHeader>
-              <CardContent>
+              <CardContent className="p-6">
                 <div className="py-4">
                   <div>
                     {Object.keys(keys).map((key) => (
@@ -291,7 +291,7 @@ const PatientPage = (props: any) => {
                   Assign Package <strong>3455666</strong>
                 </h3>
               </CardHeader>
-              <CardContent className="py-6">
+              <CardContent className="py-6 p-6">
                 <p className="mt-2 text-sm text-gray-600">
                   Are you sure you want to assign package <strong>3455666</strong> to <strong>{ patient!.patientName}</strong>?
                 </p>
