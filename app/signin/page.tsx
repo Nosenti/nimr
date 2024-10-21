@@ -81,14 +81,6 @@ export default function Login() {
 					</form>
 				</div>
 				
-				<div className='flex justify-center items-center'>
-					<span className='text-gray-600'>Powered by</span>
-					<img
-						src='/assets/co-creation_logo.svg'
-						alt='Powered By Logo'
-						className='h-8 ml-2'
-					/>
-				</div>
 			</div>
 			
 			<div
